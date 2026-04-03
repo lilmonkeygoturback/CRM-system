@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - CRM System</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="dashboard-layout">
+    <aside class="sidebar">
+      <div class="sidebar__brand">
+  <div class="brand-logo">
+    <div class="brand-logo__mark" aria-hidden="true">
+      <svg viewBox="0 0 64 64" class="brand-logo__svg" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="crmLogoGradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#60a5fa" />
+            <stop offset="100%" stop-color="#2563eb" />
+          </linearGradient>
+        </defs>
+        <rect x="6" y="6" width="52" height="52" rx="14" fill="url(#crmLogoGradient)"/>
+        <path d="M23 24.5C25.2 21.5 28.4 20 32.6 20C36.7 20 40 21.6 42.5 24.8L38.8 28.1C37.2 26 35.2 25 32.8 25C30.5 25 28.6 25.8 27.2 27.5C25.8 29.2 25.1 31.4 25.1 34C25.1 36.6 25.8 38.8 27.2 40.5C28.6 42.2 30.5 43 32.8 43C35.4 43 37.5 41.9 39.2 39.7L42.9 42.9C40.3 46.3 36.9 48 32.6 48C28.4 48 25.2 46.5 23 43.5C20.8 40.5 19.7 37.3 19.7 34C19.7 30.7 20.8 27.5 23 24.5Z" fill="white"/>
+      </svg>
+    </div>
+    <div class="brand-logo__text">
+      <h1>CRM System</h1>
+      <p>Small Business Manager</p>
+    </div>
+  </div>
+</div>
+
+      <nav class="sidebar__nav">
+        <a href="dashboard.html" class="sidebar__link active">Dashboard</a>
+        <a href="customers.html" class="sidebar__link">Customers</a>
+        <a href="customer-form.html" class="sidebar__link">Add Customer</a>
+        <a href="tasks.html" class="sidebar__link">Tasks</a>
+        <a href="index.html" class="sidebar__link">Logout</a>
+      </nav>
+    </aside>
+
+    <main class="dashboard-main">
+      <header class="topbar">
+        <div>
+          <h2>Dashboard</h2>
+          <p>Track customer performance and business activity in one place.</p>
+        </div>
+      </header>
+
+      <section class="toolbar">
+        <div class="toolbar__left">
+          <span class="badge badge-info">Live Summary API</span>
+        </div>
+
+        <div class="toolbar__right">
+          <button class="btn btn-secondary btn-small" type="button" id="refreshDashboardBtn">
+            Refresh
+          </button>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel__header">
+          <div>
+            <h2>Overview Summary</h2>
+            <p>Real dashboard data loaded from backend</p>
+          </div>
+        </div>
+
+        <p id="dashboardMessage" class="table-message"></p>
+
+        <div class="summary-grid">
+          <div class="summary-card">
+            <h3>Total Customers</h3>
+            <p id="totalCustomers" class="summary-number">0</p>
+            <span>All customers stored in the database</span>
+          </div>
+
+          <div class="summary-card">
+            <h3>Total Interactions</h3>
+            <p id="totalInteractions" class="summary-number">0</p>
+            <span>Calls, emails, meetings, and messages</span>
+          </div>
+
+          <div class="summary-card">
+            <h3>Total Tasks</h3>
+            <p id="totalTasks" class="summary-number">0</p>
+            <span>Follow-up tasks currently tracked</span>
+          </div>
+
+          <div class="summary-card">
+            <h3>New Customers</h3>
+            <p id="totalNewCustomers" class="summary-number">0</p>
+            <span>Recently added customer records</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel__header">
+          <div>
+            <h2>Dashboard Status</h2>
+            <p>Operational summary and module readiness</p>
+          </div>
+        </div>
+
+        <div class="dashboard-notes">
+          <div class="note-card">
+            <h3>System Overview</h3>
+            <p>The dashboard provides a quick summary of customer records, interaction activity, and task tracking.</p>
+          </div>
+
+          <div class="note-card">
+            <h3>Live Data</h3>
+            <p>All summary cards display current data retrieved from the backend database.</p>
+          </div>
+
+          <div class="note-card">
+            <h3>Presentation Ready</h3>
+            <p>The module has been tested with normal data flow and basic error handling for system demonstration.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

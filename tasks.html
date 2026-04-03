@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Follow-up Tasks - MiniCRM</title>
+  <link rel="stylesheet" href="css/style.css" />
+ 
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="sidebar__brand">
+  <div class="brand-logo">
+    <div class="brand-logo__mark" aria-hidden="true">
+      <svg viewBox="0 0 64 64" class="brand-logo__svg" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="crmLogoGradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#60a5fa" />
+            <stop offset="100%" stop-color="#2563eb" />
+          </linearGradient>
+        </defs>
+        <rect x="6" y="6" width="52" height="52" rx="14" fill="url(#crmLogoGradient)"/>
+        <path d="M23 24.5C25.2 21.5 28.4 20 32.6 20C36.7 20 40 21.6 42.5 24.8L38.8 28.1C37.2 26 35.2 25 32.8 25C30.5 25 28.6 25.8 27.2 27.5C25.8 29.2 25.1 31.4 25.1 34C25.1 36.6 25.8 38.8 27.2 40.5C28.6 42.2 30.5 43 32.8 43C35.4 43 37.5 41.9 39.2 39.7L42.9 42.9C40.3 46.3 36.9 48 32.6 48C28.4 48 25.2 46.5 23 43.5C20.8 40.5 19.7 37.3 19.7 34C19.7 30.7 20.8 27.5 23 24.5Z" fill="white"/>
+      </svg>
+    </div>
+    <div class="brand-logo__text">
+      <h1>CRM System</h1>
+      <p>Small Business Manager</p>
+    </div>
+  </div>
+</div>
+      <nav class="sidebar__nav">
+        <a class="sidebar__link" href="dashboard.html">Dashboard</a>
+        <a class="sidebar__link" href="customers.html">Customers</a>
+        <a class="sidebar__link" href="customer-form.html">Add Customer</a>
+        <a class="sidebar__link" href="customer-detail.html">Customer Detail</a>
+        <a class="sidebar__link is-active" href="tasks.html">Follow-up Tasks</a>
+      </nav>
+      <div class="sidebar__footer">
+        <div class="user-chip"><div class="user-chip__avatar">P</div><div><strong>Pho</strong><p>Sales Manager</p></div></div>
+        <a href="index.html" class="btn btn-secondary btn-block btn-small">Logout</a>
+      </div>
+    </aside>
+
+    <div class="app-main">
+      <header class="topbar">
+        <div>
+          <h1 class="page-title">Follow-up Tasks</h1>
+          <p class="page-subtitle">Track upcoming customer actions and priority workload.</p>
+        </div>
+        <div class="topbar__actions">
+          <button class="btn btn-secondary">Filter</button>
+          <a href="customers.html" class="btn btn-primary">Create Task</a>
+        </div>
+      </header>
+
+      <main class="page-content">
+        <section class="task-summary-grid">
+          <article class="task-summary-card">
+            <span class="task-summary-card__label">Pending Tasks</span>
+            <strong>18</strong>
+            <p>Need action this week</p>
+          </article>
+          <article class="task-summary-card">
+            <span class="task-summary-card__label">Due Today</span>
+            <strong>5</strong>
+            <p>High-priority follow-ups</p>
+          </article>
+          <article class="task-summary-card">
+            <span class="task-summary-card__label">Completed</span>
+            <strong>42</strong>
+            <p>Finished this month</p>
+          </article>
+        </section>
+
+        <section class="panel">
+          <div class="panel__header">
+            <div>
+              <h2>Task Board</h2>
+              
+            </div>
+          </div>
+
+          <div class="task-board">
+            <article class="task-column">
+              <div class="task-column__header">
+                <h3>To Do</h3>
+                <span>4</span>
+              </div>
+              <div class="task-card">
+                <strong>Call Nguyen Van An</strong>
+                <p>Confirm final quotation and delivery schedule.</p>
+                <div class="task-meta"><span>Due: Today</span><span class="badge badge-warning">Interested</span></div>
+              </div>
+              <div class="task-card">
+                <strong>Send catalog to Tran Gia Huy</strong>
+                <p>Customer asked for a new product list via Zalo.</p>
+                <div class="task-meta"><span>Due: 28 Mar</span><span class="badge badge-neutral">New</span></div>
+              </div>
+            </article>
+
+            <article class="task-column">
+              <div class="task-column__header">
+                <h3>In Progress</h3>
+                <span>3</span>
+              </div>
+              <div class="task-card">
+                <strong>Prepare discount offer</strong>
+                <p>Create repeat-customer voucher for Pham Thu Ha.</p>
+                <div class="task-meta"><span>Due: 29 Mar</span><span class="badge badge-success">Purchased</span></div>
+              </div>
+              <div class="task-card">
+                <strong>Check inactive customers</strong>
+                <p>Review old contacts and choose recovery list.</p>
+                <div class="task-meta"><span>Due: 30 Mar</span><span class="badge badge-danger">Inactive</span></div>
+              </div>
+            </article>
+
+            <article class="task-column">
+              <div class="task-column__header">
+                <h3>Done</h3>
+                <span>2</span>
+              </div>
+              <div class="task-card">
+                <strong>Follow-up Le Minh Trang</strong>
+                <p>Sent product quote and recorded customer feedback.</p>
+                <div class="task-meta"><span>Done</span><span class="badge badge-info">Contacted</span></div>
+              </div>
+              <div class="task-card">
+                <strong>Update lead source report</strong>
+                <p>Adjusted weekly dashboard note for campaign review.</p>
+                <div class="task-meta"><span>Done</span><span class="badge badge-outline">Internal</span></div>
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+  
+  <script src="js/main.js"></script>
+  <script src="js/tasks.js"></script>
+</body>
+</html>

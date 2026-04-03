@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Customer Detail - CRM System</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="dashboard-layout">
+    <aside class="sidebar">
+      <div class="sidebar__brand">
+  <div class="brand-logo">
+    <div class="brand-logo__mark" aria-hidden="true">
+      <svg viewBox="0 0 64 64" class="brand-logo__svg" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="crmLogoGradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#60a5fa" />
+            <stop offset="100%" stop-color="#2563eb" />
+          </linearGradient>
+        </defs>
+        <rect x="6" y="6" width="52" height="52" rx="14" fill="url(#crmLogoGradient)"/>
+        <path d="M23 24.5C25.2 21.5 28.4 20 32.6 20C36.7 20 40 21.6 42.5 24.8L38.8 28.1C37.2 26 35.2 25 32.8 25C30.5 25 28.6 25.8 27.2 27.5C25.8 29.2 25.1 31.4 25.1 34C25.1 36.6 25.8 38.8 27.2 40.5C28.6 42.2 30.5 43 32.8 43C35.4 43 37.5 41.9 39.2 39.7L42.9 42.9C40.3 46.3 36.9 48 32.6 48C28.4 48 25.2 46.5 23 43.5C20.8 40.5 19.7 37.3 19.7 34C19.7 30.7 20.8 27.5 23 24.5Z" fill="white"/>
+      </svg>
+    </div>
+    <div class="brand-logo__text">
+      <h1>CRM System</h1>
+      <p>Small Business Manager</p>
+    </div>
+  </div>
+</div>
+
+      <nav class="sidebar__nav">
+        <a href="dashboard.html" class="sidebar__link">Dashboard</a>
+        <a href="customers.html" class="sidebar__link active">Customers</a>
+        <a href="customer-form.html" class="sidebar__link">Add Customer</a>
+        <a href="tasks.html" class="sidebar__link">Tasks</a>
+        <a href="index.html" class="sidebar__link">Logout</a>
+      </nav>
+    </aside>
+
+    <main class="dashboard-main">
+      <header class="topbar">
+        <div>
+          <h2>Customer Detail</h2>
+          <p id="pageSubtitle">View customer information and interaction history.</p>
+        </div>
+      </header>
+
+      <section class="toolbar">
+        <div class="toolbar__left">
+          <a href="customers.html" class="btn btn-secondary">← Back to Customers</a>
+        </div>
+
+        <div class="toolbar__right">
+          <a href="#" id="editCustomerBtn" class="btn btn-primary">Edit Customer</a>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel__header">
+          <div>
+            <h2>Customer Overview</h2>
+            <p>Main profile information and follow-up area</p>
+          </div>
+        </div>
+
+        <div class="detail-grid">
+          <div class="detail-card">
+            <h3>Profile Info</h3>
+            <div id="customerInfo" class="detail-list">
+              <p>Loading customer data...</p>
+            </div>
+          </div>
+
+          <div class="detail-card">
+  <h3>Follow-up Tasks</h3>
+  <p>Create and track follow-up tasks for this customer.</p>
+
+  <form id="taskForm" class="crm-form" style="margin-top: 16px;">
+    <div class="form-grid">
+      <div class="form-group">
+        <label for="taskTitle">Task Title</label>
+        <input
+          type="text"
+          id="taskTitle"
+          class="input"
+          placeholder="Enter task title"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="taskDueDate">Due Date</label>
+        <input
+          type="date"
+          id="taskDueDate"
+          class="input"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn btn-primary">Add Task</button>
+    </div>
+
+    <p id="taskFormMessage" class="form-message"></p>
+  </form>
+
+  <div id="taskList" class="detail-list" style="margin-top: 20px;">
+    <p class="table-message">Loading follow-up tasks...</p>
+  </div>
+</div>
+
+      <section class="panel">
+        <div class="panel__header">
+          <div>
+            <h2>Interaction History</h2>
+            <p>All interactions linked to this customer</p>
+          </div>
+        </div>
+
+        <div id="interactionList" class="activity-list">
+          <p class="table-message">Loading interactions...</p>
+        </div>
+      </section>
+      
+
+      <section class="panel">
+        <div class="panel__header">
+          <div>
+            <h2>Add Interaction</h2>
+            <p>Save a new interaction for this customer</p>
+          </div>
+        </div>
+
+        <form id="interactionForm" class="crm-form">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="interactionType">Type</label>
+              <select id="interactionType" class="input" required>
+                <option value="">Select type</option>
+                <option value="Call">Call</option>
+                <option value="Email">Email</option>
+                <option value="Meeting">Meeting</option>
+                <option value="Message">Message</option>
+              </select>
+            </div>
+
+            <div class="form-group form-group--full">
+              <label for="interactionNote">Note</label>
+              <textarea
+                id="interactionNote"
+                class="input"
+                placeholder="Enter interaction note..."
+                rows="5"
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">Add Interaction</button>
+          </div>
+
+          <p id="formMessage" class="form-message"></p>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="js/main.js"></script>
+  <script src="js/customer-detail.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MiniCRM Login</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="auth-body">
+  <main class="auth-page">
+    <section class="auth-card">
+      <div class="auth-brand">
+        <p class="eyebrow">Customer Relationship Management</p>
+        <h1>MiniCRM</h1>
+        <p class="muted">A simple CRM interface for small business customer management.</p>
+      </div>
+
+      <form id="loginForm" class="auth-form">
+        <div class="form-group">
+         <label for="email">Email Address</label>
+         <input id="email" type="email" placeholder="manager@business.com" />
+       </div>
+
+        <div class="form-group">
+         <label for="password">Password</label>
+         <input id="password" type="password" placeholder="Enter your password" />
+        </div>
+
+        <div class="auth-options">
+         <label class="checkbox-row">
+         <input type="checkbox" />
+         <span>Remember me</span>
+         </label>
+        <a href="#" class="text-link">Forgot password?</a>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Login</button>
+        <p id="loginMessage" class="muted"></p>
+       </form>
+
+     
+    </section>
+
+    <section class="auth-side">
+      <div class="auth-side__content">
+        <p class="eyebrow">What this system supports</p>
+        <h2>Organize customers, track interactions, and manage follow-up tasks.</h2>
+        <ul class="feature-list">
+          <li>Centralized customer records</li>
+          <li>Simple pipeline and status tracking</li>
+          <li>Follow-up planning for better retention</li>
+          <li>Dashboard overview for quick monitoring</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+  <script src="js/main.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>
