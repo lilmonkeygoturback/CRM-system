@@ -1,35 +1,78 @@
-# MiniCRM / CRM System
-## README - How to Run the Project 
+# MiniCRM
 
-This guide explains how to run the project on another laptop or PC.
+A web-based internal customer relationship management system for small businesses. The system supports centralized customer record management, interaction tracking, and basic follow-up task management through a simple admin interface.
 
 ---
 
-## 1. Project Overview
+## 1. Core Features
 
-This project is a small business CRM system with these main modules:
+The current version includes **12 core features**:
 
-- Admin login
-- Dashboard summary
-- Customer management
-- Add / edit / delete customer
-- Customer detail
-- Interaction history
-- Add interaction
+1. Login
+2. View Dashboard
+3. View Customer List
+4. Add Customer
+5. Edit Customer
+6. Delete Customer
+7. View Customer Detail
+8. View Interaction History
+9. Add Interaction
+10. View Follow-up Tasks
+11. Add Follow-up Task
+12. Mark Task as Completed / Update Task Stage
 
-Frontend and backend are separated:
+---
+
+## 2. Technology Stack
 
 - **Frontend:** HTML, CSS, JavaScript
-- **Backend:** Node.js + Express.js
+- **Backend:** Node.js, Express.js
 - **Database:** MySQL
+- **Other packages:** CORS, dotenv, jsonwebtoken, mysql2, nodemon
 
 ---
 
-## 2. Requirements
+## 3. Project Structure
 
-Before running the project, install these tools on the new device:
+```bash
+ISM Project/
+├── css/
+├── db/
+│   └── ism_crm_database.sql
+├── js/
+│   ├── customer-detail.js
+│   ├── customer-form.js
+│   ├── customers.js
+│   ├── dashboard.js
+│   ├── login.js
+│   ├── main.js
+│   └── tasks.js
+├── server/
+│   ├── config/
+│   │   └── db.js
+│   ├── controllers/
+│   ├── routes/
+│   ├── app.js
+│   ├── server.js
+│   └── .env
+├── customer-detail.html
+├── customer-form.html
+├── customers.html
+├── dashboard.html
+├── index.html
+├── tasks.html
+├── package.json
+└── README.md
+```
 
-### Required software
+> **Important:** `package.json` is located in the **project root**, not inside the `server` folder.
+
+---
+
+## 4. Prerequisites
+
+Install the following before running the project:
+
 - **Node.js**
 - **MySQL Server**
 - **MySQL Workbench** (recommended)
@@ -38,71 +81,30 @@ Before running the project, install these tools on the new device:
 
 ---
 
-## 3. Copy the Project to the New Device
+## 5. Database Setup
 
-Move the whole project folder to the new device.
-
-For example:
-
-```bash
-CRM_Project/
-```
-
-Make sure the project still contains both frontend and backend files.
-
-Typical structure:
-
-```bash
-CRM_Project/
-│
-├── css/
-├── js/
-├── dashboard.html
-├── customers.html
-├── customer-form.html
-├── customer-detail.html
-├── index.html
-│
-├── server/
-│   ├── config/
-│   ├── controllers/
-│   ├── routes/
-│   ├── server.js
-│   └── package.json
-│
-└── README.md
-```
-
----
-
-## 4. Set Up the Database
-
-### Step 1: Open MySQL Workbench
-Open MySQL Workbench on the new device.
-
-### Step 2: Create the database
-Create the database used by the project.
-
-Example:
+### Step 1: Create the database
 
 ```sql
 CREATE DATABASE ism_crm;
 ```
 
-### Step 3: Import the SQL file
-If your project has an exported `.sql` file, import it into MySQL.
+### Step 2: Import the SQL file
 
-For example:
-- Open MySQL Workbench
-- Go to **Server > Data Import**
-- Choose the exported SQL file
-- Import into the database `ism_crm`
+Import the file:
 
-If you do not have the SQL file imported yet, the system will not load real data.
+```bash
+db/ism_crm_database.sql
+```
 
-### Step 4: Check important tables
-Make sure these tables exist:
+Recommended method in MySQL Workbench:
+- Open **Server > Data Import**
+- Select `ism_crm_database.sql`
+- Import into database `ism_crm`
 
+### Step 3: Confirm the main tables exist
+
+The project expects these tables:
 - `users`
 - `customers`
 - `interactions`
@@ -110,230 +112,276 @@ Make sure these tables exist:
 
 ---
 
-## 5. Configure Database Connection
+## 6. Environment Configuration
 
-Open the backend config file.
-
-Usually it is in:
+Open:
 
 ```bash
-server/config/db.js
+server/.env
 ```
 
-Check and update the MySQL connection settings:
+Example configuration:
 
-```javascript
-host: "localhost"
-user: "root"
-password: "your_mysql_password"
-database: "ism_crm"
+```env
+PORT=5000
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=123456
+DB_NAME=ism_crm
+JWT_SECRET=mycrmsecretkey
 ```
 
-Important:
-- `user` must match the MySQL username on the new device
-- `password` must match the MySQL password on the new device
-- `database` must match the imported database name
-
-Save the file after editing.
+Update the values to match your MySQL environment.
 
 ---
 
-## 6. Install Backend Dependencies
+## 7. Install Dependencies
 
-Open terminal inside the backend folder:
-
-```bash
-cd server
-```
-
-Install required packages:
+Open a terminal in the **project root** and run:
 
 ```bash
 npm install
 ```
 
-This will install Express, MySQL driver, CORS, and other required packages.
-
 ---
 
-## 7. Start the Backend Server
+## 8. Start the Backend Server
 
-Still inside the `server` folder, run:
+From the **project root**, run:
 
 ```bash
-node server.js
+npm start
 ```
 
-If the backend runs successfully, you should see a message similar to:
+For development mode:
 
 ```bash
+npm run dev
+```
+
+Expected output:
+
+```bash
+Connected to MySQL database
 Server is running on port 5000
 ```
 
-Keep this terminal open while using the project.
-
 ---
 
-## 8. Start the Frontend
+## 9. Start the Frontend
 
-Open the main project folder in VS Code.
+Open the project folder in VS Code.
 
 Then:
 - Right click `index.html`
 - Choose **Open with Live Server**
 
-The frontend will usually run at:
+Typical frontend URL:
 
-```bash
+```text
 http://127.0.0.1:5500/index.html
 ```
 
 ---
 
-## 9. Login to the System
+## 10. Test Login Account
 
-Open the login page in the browser and sign in with the admin account.
-
-Use the account that already exists in your imported database.
-
-Example test account used during development:
+Sample account from the SQL seed data:
 
 ```text
 Email: admin@ismcrm.com
 Password: 123456
 ```
 
-If this account does not work, check the `users` table in MySQL and use the correct admin record from the database.
-
----
-
-## 10. Main Pages
-
-After login, the system should allow access to these pages:
-
-- `index.html` -> Login page
-- `dashboard.html` -> Dashboard summary
-- `customers.html` -> Customer list
-- `customer-form.html` -> Add / edit customer
-- `customer-detail.html?id=...` -> Customer detail and interactions
-
----
-
-## 11. APIs Used by the Frontend
-
-The frontend expects the backend to run at:
+Additional seeded user:
 
 ```text
-http://localhost:5000
+Email: staff@ismcrm.com
+Password: 123456
 ```
 
-Important API examples:
+---
 
+## 11. Main Pages
+
+- `index.html` → Login page
+- `dashboard.html` → Dashboard summary
+- `customers.html` → Customer list
+- `customer-form.html` → Add / edit customer
+- `customer-detail.html?id=...` → Customer detail, interactions, and customer tasks
+- `tasks.html` → Follow-up task board
+
+---
+
+## 12. Task Module Scope
+
+The follow-up task module supports:
+- viewing customer-specific tasks
+- viewing the overall task board
+- creating new tasks for a selected customer
+- updating task stage
+- marking tasks as completed
+
+Recommended task stages:
+- `To Do`
+- `In Progress`
+- `Done`
+
+---
+
+## 13. API Endpoints
+
+### Authentication
 - `POST /api/auth/login`
+
+### Dashboard
 - `GET /api/dashboard/summary`
+
+### Customers
 - `GET /api/customers`
 - `GET /api/customers/:id`
 - `POST /api/customers`
 - `PUT /api/customers/:id`
 - `DELETE /api/customers/:id`
+
+### Interactions
+- `GET /api/interactions`
 - `GET /api/interactions/customer/:customerId`
 - `POST /api/interactions`
 
-If you change the backend port, you must also update the API base URL in the frontend JavaScript files.
+### Tasks
+- `GET /api/tasks`
+- `GET /api/tasks/customer/:customerId`
+- `POST /api/tasks`
+- `PUT /api/tasks/:id/stage`
+- `PUT /api/tasks/:id/complete`
+
+> If you change the backend port, update the API base URL inside the frontend JavaScript files.
 
 ---
 
-## 12. Common Problems and Fixes
-
-### Problem 1: Backend cannot connect to database
-**Cause:** wrong MySQL username, password, or database name
-
-**Fix:** check `server/config/db.js`
-
----
-
-### Problem 2: Frontend loads but no data appears
-**Cause:** backend is not running, or database was not imported
-
-**Fix:**
-- start backend with `node server.js`
-- confirm MySQL database and tables exist
-
----
-
-### Problem 3: Login does not work
-**Cause:** admin account not found in database
-
-**Fix:**
-- check the `users` table
-- confirm that the password matches the stored account
-
----
-
-### Problem 4: Customer update shows database error
-**Cause:** database schema on the new device is different from the current project version
-
-**Fix:**
-- make sure the imported SQL file is the latest version
-- check important customer fields such as:
-  - `source`
-  - `last_contact`
-  - `next_follow_up`
-
----
-
-### Problem 5: Interaction cannot be added
-**Cause:** backend expects `content` field in interaction payload
-
-**Fix:**
-- use the latest frontend JS files
-- make sure the `interactions` table exists and the backend is updated
-
----
-
-## 13. Recommended Run Order
-
-For the best result on another device, follow this order:
+## 14. Recommended Run Order
 
 1. Install Node.js and MySQL
-2. Copy the project folder
-3. Import the SQL database
-4. Configure `server/config/db.js`
-5. Run `npm install` inside `server`
-6. Start backend with `node server.js`
-7. Open frontend using Live Server
-8. Log in and test the main modules
+2. Import `db/ism_crm_database.sql`
+3. Configure `server/.env`
+4. Run `npm install`
+5. Start backend with `npm start`
+6. Open frontend with Live Server
+7. Log in and test the main modules
 
 ---
 
-## 14. Minimum Demo Checklist
+## 15. Demo Checklist
 
-Before presenting on another device, test these functions:
+Before presentation or submission, test the following:
 
 - Login works
 - Dashboard loads summary data
-- Customer list loads
+- Customer list loads correctly
 - Add customer works
 - Edit customer works
 - Delete customer works
-- Customer detail loads
+- Customer detail loads correctly
 - Interaction history loads
 - Add interaction works
+- Customer-specific follow-up tasks load
+- Add follow-up task works
+- Mark task as completed works
+- Task board loads correctly in `tasks.html`
+- Task stage update works
 
 ---
 
-## 15. Notes
+## 16. Common Problems and Fixes
 
-- This version supports **one admin role**
-- The **task section** is currently presented as a static module
-- The project is intended for **small business customer information management**
+### 1. Backend cannot connect to database
+**Cause:** wrong database credentials in `.env`
+
+**Fix:** check:
+- `DB_HOST`
+- `DB_USER`
+- `DB_PASSWORD`
+- `DB_NAME`
+
+### 2. Frontend opens but no data appears
+**Cause:** backend is not running or database was not imported
+
+**Fix:**
+- start backend with `npm start`
+- confirm MySQL is running
+- confirm all tables were imported
+
+### 3. Login fails
+**Cause:** seeded user account is missing or credentials do not match the database
+
+**Fix:**
+- check the `users` table
+- use a valid account from the imported database
+
+### 4. Customer update returns database error
+**Cause:** the imported schema is outdated or incomplete
+
+**Fix:**
+- re-import the latest `ism_crm_database.sql`
+- confirm customer fields such as `source`, `last_contact`, and `next_follow_up` exist
+
+### 5. Follow-up tasks do not display correctly
+**Cause:** inconsistent task stage values in old data
+
+**Fix:** use the standardized values:
+- `To Do`
+- `In Progress`
+- `Done`
+
+If your old database still contains `pending` or `completed`, run:
+
+```sql
+UPDATE tasks
+SET stage = 'To Do'
+WHERE stage = 'pending' AND id > 0;
+
+UPDATE tasks
+SET stage = 'Done'
+WHERE stage = 'completed' AND id > 0;
+```
+
+### 6. `Due Today` shows 0 on the task page
+**Cause:** no task in the database has a due date equal to the current date
+
+**Fix:**
+- check existing `due_date` values in MySQL
+- create or update a task with today's date for testing
 
 ---
 
-## 16. Contact / Project Use
+## 17. Notes
 
-This README is intended to help run the project on another device for:
-- class presentation
-- testing
-- project submission
-- demo preparation
+- This project is designed as a **MiniCRM** for small businesses.
+- The main actor is **Admin**.
+- The system focuses on core CRM operations rather than advanced enterprise features.
+- The task module provides **basic follow-up task management**, not advanced workflow automation.
+
+---
+
+## 18. Future Improvements
+
+Possible next enhancements:
+- edit task details
+- delete task
+- filter tasks by stage or customer
+- overdue highlighting
+- reminder / notification support
+- stronger authentication and authorization
+- richer analytics on the dashboard
+
+---
+
+## 19. Purpose
+
+This project was developed for:
+- ISM coursework
+- project demonstration
+- report submission
+- presentation and testing
+
