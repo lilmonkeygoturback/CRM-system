@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.40, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: ism_crm
+-- Host: localhost    Database: ism_crm
 -- ------------------------------------------------------
 -- Server version	8.0.40
 
@@ -39,7 +39,7 @@ CREATE TABLE `customers` (
   PRIMARY KEY (`id`),
   KEY `fk_customers_created_by` (`created_by`),
   CONSTRAINT `fk_customers_created_by` FOREIGN KEY (`created_by`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -48,7 +48,7 @@ CREATE TABLE `customers` (
 
 LOCK TABLES `customers` WRITE;
 /*!40000 ALTER TABLE `customers` DISABLE KEYS */;
-INSERT INTO `customers` VALUES (1,'Tôn Quang Duy','quangduy37@gmail.com','0988888777','Interested','Facebook Ads','Thu Duc, Ho Chi Minh City','Customer is interested in bulk purchase and asked about discount options.','2026-03-26','2026-03-28',12500000.00,1,'2026-03-28 14:21:30'),(2,'Le Minh Trang','trang.le@email.com','0938998889','Contacted','Website Form','Binh Thanh, Ho Chi Minh City','Customer requested a detailed quote before making decision.','2026-03-25','2026-03-29',8300000.00,1,'2026-03-28 14:21:30'),(3,'Tran Gia Huy','huy.tran@email.com','0987741258','New','Zalo','District 7, Ho Chi Minh City','New lead asking for latest catalog and delivery fee.','2026-03-24','2026-03-27',4500000.00,2,'2026-03-28 14:21:30'),(6,'Nguyễn Phước Thịnh','nguyenphuocthinh20092004@gmail.com','0907456354','New','Zalo',NULL,NULL,'2026-03-01','2026-03-10',NULL,NULL,'2026-03-28 21:41:02'),(12,'Nguyễn Phước Hải','nguyenphuochai0309@gmail.com','0908727114','New','Referral',NULL,NULL,'2026-02-19','2026-03-31',NULL,NULL,'2026-03-28 23:59:56');
+INSERT INTO `customers` VALUES (1,'Tôn Quang Duy','quangduy37@gmail.com','0988888777','Interested','Facebook Ads','Thu Duc, Ho Chi Minh City','Customer is interested in bulk purchase and asked about discount options.','2026-03-26','2026-03-28',12500000.00,1,'2026-03-28 14:21:30'),(2,'Le Minh Trang','trang.le@email.com','0938998889','Contacted','Website Form','Binh Thanh, Ho Chi Minh City','Customer requested a detailed quote before making decision.','2026-03-25','2026-03-29',8300000.00,1,'2026-03-28 14:21:30'),(3,'Tran Gia Huy','huy.tran@email.com','0987741258','New','Zalo','District 7, Ho Chi Minh City','New lead asking for latest catalog and delivery fee.','2026-03-24','2026-03-27',4500000.00,2,'2026-03-28 14:21:30'),(16,'Mai Hung','abc@gmail.com','0889774232','New','Facebook Ads',NULL,NULL,'2026-03-24','2026-03-31',NULL,NULL,'2026-03-31 12:00:24'),(17,'Lê Phú An','an123@gmail.com','0912475784','New','Email Campaign',NULL,NULL,'2026-03-31','2026-04-15',NULL,NULL,'2026-04-06 11:48:58');
 /*!40000 ALTER TABLE `customers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -72,7 +72,7 @@ CREATE TABLE `interactions` (
   KEY `fk_interactions_created_by` (`created_by`),
   CONSTRAINT `fk_interactions_created_by` FOREIGN KEY (`created_by`) REFERENCES `users` (`id`),
   CONSTRAINT `fk_interactions_customer` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -81,7 +81,7 @@ CREATE TABLE `interactions` (
 
 LOCK TABLES `interactions` WRITE;
 /*!40000 ALTER TABLE `interactions` DISABLE KEYS */;
-INSERT INTO `interactions` VALUES (1,1,'Phone Call','Discussed pricing and delivery timeline.','2026-03-26',1,'2026-03-28 14:21:30'),(2,1,'Zalo Message','Sent product catalog and sample photos.','2026-03-25',1,'2026-03-28 14:21:30'),(3,2,'Email','Sent quote and product comparison.','2026-03-25',1,'2026-03-28 14:21:30'),(4,3,'Zalo Message','Customer asked for product list and shipping fee.','2026-03-24',2,'2026-03-28 14:21:30'),(5,1,'Call','Customer asked about pricing details','2026-03-29',1,'2026-03-28 19:51:33'),(6,1,'Call','Day 37 test interaction','2026-03-29',1,'2026-03-28 20:09:40'),(7,6,'Message','First meeting with customer','2026-03-28',1,'2026-03-28 23:29:26'),(8,1,'Call','call for jobs','2026-03-29',1,'2026-03-29 00:13:49');
+INSERT INTO `interactions` VALUES (1,1,'Phone Call','Discussed pricing and delivery timeline.','2026-03-26',1,'2026-03-28 14:21:30'),(2,1,'Zalo Message','Sent product catalog and sample photos.','2026-03-25',1,'2026-03-28 14:21:30'),(3,2,'Email','Sent quote and product comparison.','2026-03-25',1,'2026-03-28 14:21:30'),(4,3,'Zalo Message','Customer asked for product list and shipping fee.','2026-03-24',2,'2026-03-28 14:21:30'),(5,1,'Call','Customer asked about pricing details','2026-03-29',1,'2026-03-28 19:51:33'),(6,1,'Call','Day 37 test interaction','2026-03-29',1,'2026-03-28 20:09:40'),(8,1,'Call','call for jobs','2026-03-29',1,'2026-03-29 00:13:49'),(9,1,'Call','ask about his job','2026-03-30',1,'2026-03-30 18:51:19'),(11,17,'Call','123','2026-04-06',1,'2026-04-06 11:49:44');
 /*!40000 ALTER TABLE `interactions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -106,7 +106,7 @@ CREATE TABLE `tasks` (
   KEY `fk_tasks_assigned_to` (`assigned_to`),
   CONSTRAINT `fk_tasks_assigned_to` FOREIGN KEY (`assigned_to`) REFERENCES `users` (`id`),
   CONSTRAINT `fk_tasks_customer` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -115,7 +115,7 @@ CREATE TABLE `tasks` (
 
 LOCK TABLES `tasks` WRITE;
 /*!40000 ALTER TABLE `tasks` DISABLE KEYS */;
-INSERT INTO `tasks` VALUES (1,1,'Call Nguyen Van An','Confirm final quotation and delivery schedule.','To Do','2026-03-28',1,'2026-03-28 14:21:30'),(2,2,'Follow-up Le Minh Trang','Check whether the customer reviewed the quote.','In Progress','2026-03-29',1,'2026-03-28 14:21:30'),(3,3,'Send catalog to Tran Gia Huy','Send updated product list via Zalo.','To Do','2026-03-27',2,'2026-03-28 14:21:30');
+INSERT INTO `tasks` VALUES (1,1,'Call Nguyen Van An','Confirm final quotation and delivery schedule.','Done','2026-03-28',1,'2026-03-28 14:21:30'),(2,2,'Follow-up Le Minh Trang','Check whether the customer reviewed the quote.','In Progress','2026-03-29',1,'2026-03-28 14:21:30'),(3,3,'Send catalog to Tran Gia Huy','Send updated product list via Zalo.','Done','2026-03-27',2,'2026-03-28 14:21:30'),(4,1,'meeting room','','Done','2026-03-31',NULL,'2026-03-30 19:17:12'),(7,3,'meeting room','','To Do','2026-03-31',NULL,'2026-03-30 19:33:50'),(8,3,'meeting 2','','Done','2026-03-27',NULL,'2026-03-30 19:34:14'),(9,16,'meeting room','','Done','2026-03-31',NULL,'2026-03-31 15:00:48'),(11,17,'meeting room','','Done','2026-03-31',NULL,'2026-04-06 11:49:33');
 /*!40000 ALTER TABLE `tasks` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -157,4 +157,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-03-29 10:30:09
+-- Dump completed on 2026-04-13 12:48:18
