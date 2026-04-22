@@ -4,56 +4,106 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>MiniCRM Login</title>
-  <link rel="stylesheet" href="css/style.css" />
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
 </head>
-<body class="auth-body">
-  <main class="auth-page">
-    <section class="auth-card">
-      <div class="auth-brand">
-        <p class="eyebrow">Customer Relationship Management</p>
-        <h1>MiniCRM</h1>
-        <p class="muted">A simple CRM interface for small business customer management.</p>
+
+<body class="bg-slate-200 min-h-screen flex items-center justify-center p-4 md:p-8 font-sans text-slate-900 antialiased">
+
+  <main class="flex flex-col md:flex-row bg-white rounded-2xl shadow-2xl overflow-hidden w-full max-w-5xl md:min-h-[600px]">
+    
+    <section class="flex-1 p-8 md:p-12 lg:p-16 flex flex-col justify-center">
+      
+      <div class="mb-10">
+        <p class="uppercase text-xs font-bold text-blue-600 tracking-wider mb-2">Customer Relationship Management</p>
+        <h1 class="text-3xl font-bold text-slate-800 mb-2">MiniCRM</h1>
+        <p class="text-slate-500 text-sm leading-relaxed">A simple CRM interface for small business customer management.</p>
       </div>
 
-      <form id="loginForm" class="auth-form">
-        <div class="form-group">
-         <label for="email">Email Address</label>
-         <input id="email" type="email" placeholder="manager@business.com" />
-       </div>
-
-        <div class="form-group">
-         <label for="password">Password</label>
-         <input id="password" type="password" placeholder="Enter your password" />
+      <form id="loginForm" class="flex flex-col gap-5">
+        
+        <div>
+          <label for="email" class="block text-sm font-semibold text-slate-700 mb-2">Email Address</label>
+          <input 
+            id="email" 
+            type="email" 
+            placeholder="manager@business.com" 
+            class="w-full px-4 py-3 border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
+          />
         </div>
 
-        <div class="auth-options">
-         <label class="checkbox-row">
-         <input type="checkbox" />
-         <span>Remember me</span>
-         </label>
-        <a href="#" class="text-link">Forgot password?</a>
+        <div>
+          <label for="password" class="block text-sm font-semibold text-slate-700 mb-2">Password</label>
+          <input 
+            id="password" 
+            type="password" 
+            placeholder="Enter your password" 
+            class="w-full px-4 py-3 border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
+          />
         </div>
 
-        <button type="submit" class="btn btn-primary btn-block">Login</button>
-        <p id="loginMessage" class="muted"></p>
-       </form>
+        <div class="flex items-center justify-between mt-2 text-sm">
+          <label class="flex items-center gap-2 cursor-pointer text-slate-500 hover:text-slate-700 transition-colors">
+            <input type="checkbox" class="w-4 h-4 text-blue-600 border-slate-300 rounded focus:ring-blue-500 cursor-pointer" />
+            <span>Remember me</span>
+          </label>
+          <a href="#" class="text-blue-600 font-semibold hover:underline">Forgot password?</a>
+        </div>
 
-     
+        <button 
+          type="submit" 
+          class="w-full bg-blue-600 text-white font-semibold py-3 px-4 rounded-lg mt-2 hover:bg-blue-700 hover:-translate-y-0.5 transition-all duration-200 shadow-lg shadow-blue-500/30">
+          Login
+        </button>
+        
+        <p id="loginMessage" class="text-sm text-slate-500 text-center mt-2"></p>
+      </form>
     </section>
 
-    <section class="auth-side">
-      <div class="auth-side__content">
-        <p class="eyebrow">What this system supports</p>
-        <h2>Organize customers, track interactions, and manage follow-up tasks.</h2>
-        <ul class="feature-list">
-          <li>Centralized customer records</li>
-          <li>Simple pipeline and status tracking</li>
-          <li>Follow-up planning for better retention</li>
-          <li>Dashboard overview for quick monitoring</li>
+    <section class="flex-1 bg-gradient-to-br from-slate-900 to-slate-800 text-white p-8 md:p-12 lg:p-16 flex flex-col justify-center">
+      <div class="max-w-md">
+        <p class="text-sky-400 uppercase text-xs font-bold tracking-wider mb-2">What this system supports</p>
+        <h2 class="text-2xl lg:text-3xl font-semibold text-slate-50 leading-snug mb-8">
+          Organize customers, track interactions, and manage follow-up tasks.
+        </h2>
+        
+        <ul class="space-y-5">
+          <li class="flex items-start gap-4 text-slate-300">
+            <span class="flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full bg-sky-400/20 text-sky-400 text-xs font-bold mt-0.5">✓</span>
+            <span>Centralized customer records</span>
+          </li>
+          <li class="flex items-start gap-4 text-slate-300">
+            <span class="flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full bg-sky-400/20 text-sky-400 text-xs font-bold mt-0.5">✓</span>
+            <span>Simple pipeline and status tracking</span>
+          </li>
+          <li class="flex items-start gap-4 text-slate-300">
+            <span class="flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full bg-sky-400/20 text-sky-400 text-xs font-bold mt-0.5">✓</span>
+            <span>Follow-up planning for better retention</span>
+          </li>
+          <li class="flex items-start gap-4 text-slate-300">
+            <span class="flex-shrink-0 flex items-center justify-center w-6 h-6 rounded-full bg-sky-400/20 text-sky-400 text-xs font-bold mt-0.5">✓</span>
+            <span>Dashboard overview for quick monitoring</span>
+          </li>
         </ul>
       </div>
     </section>
+
   </main>
+
   <script src="js/main.js"></script>
   <script src="js/login.js"></script>
 </body>
